@@ -1,17 +1,4 @@
-Dewan Image Carousel: Highly configurable Image Carousel that runs in a efficient way. You can place your DOT and COUNT in different position
-
-## Features
-![no_count_no_dot](screenshot/no_count_no_dot.gif)
-
-![bottom_center_botom_right](screenshot/bottom_center_botom_right.gif)
-
-![bottom_center_top_left](screenshot/bottom_center_top_left.gif)
-
-![bottom_center_botom_right](screenshot/bottom_center_botom_right.gif)
-
-![bottom_center_top_right](screenshot/bottom_center_top_right.gif)
-
-![bottom_center_botom_right](screenshot/top_right.gif)
+Dewan Image Carousel: Highly configurable Image Carousel that runs in a efficient way. You can place your DOT and COUNT in different position and can add Out Of Stock overlay
 
 
 ## Getting started
@@ -32,6 +19,11 @@ Once you have installed the package you can import the package as shown below an
 For complete example please check the `/example` folder.
 
 ```dart
+  // Do not show DOT and COUNT - No dot and no count
+  const Text(
+    'Empty Image - ',
+  ),
+
   // Empty image list - return a empty sizeBox
   const BCBLImageCarousel(
     images: [], 
@@ -43,6 +35,9 @@ For complete example please check the `/example` folder.
     dotColor: Colors.greenAccent,  
     showCount: false,
     showDot: false,
+    isOutOfStock: true,
+    outOfStockText: "SOLD OUT", 
+    outOfStockTextStyle: TextStyle(color: Colors.white),
   ),
 
   // Do not show DOT and COUNT - No dot and no count
@@ -58,6 +53,9 @@ For complete example please check the `/example` folder.
     dotColor: Colors.greenAccent,  
     showCount: false,
     showDot: false,
+    isOutOfStock: true,
+    outOfStockText: "SOLD OUT", 
+    outOfStockTextStyle: const TextStyle(color: Colors.white),
   ),
   const SizedBox(height: 8,),
 
@@ -72,7 +70,10 @@ For complete example please check the `/example` folder.
     boxFit: BoxFit.fill,
     autoPlay: true, 
     dotColor: Colors.white,
-    dotType: DotType.rounded,                 
+    dotType: DotType.rounded, 
+    isOutOfStock: true,
+    outOfStockText: "SOLD OUT", 
+    outOfStockTextStyle: const TextStyle(color: Colors.white),                
   ),
   const SizedBox(height: 8,),
 
@@ -186,9 +187,25 @@ For complete example please check the `/example` folder.
     boxFit: BoxFit.fill,
     autoPlay: true,
     dotColor: Colors.white,  
+    isOutOfStock: true,
+    outOfStockText: "SOLD OUT", 
+    outOfStockTextStyle: const TextStyle(color: Colors.white),
   ),
   const SizedBox(height: 8,),
 ```
+
+## Features
+![no_count_no_dot](screenshot/no_count_no_dot.gif)
+
+![bottom_center_botom_right](screenshot/bottom_center_botom_right.gif)
+
+![bottom_center_top_left](screenshot/bottom_center_top_left.gif)
+
+![bottom_center_botom_right](screenshot/bottom_center_botom_right.gif)
+
+![bottom_center_top_right](screenshot/bottom_center_top_right.gif)
+
+![bottom_center_botom_right](screenshot/top_right.gif)
 
 ## Additional information
 If you want to contribute to this project , you are welcome to create a PR.
