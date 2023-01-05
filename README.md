@@ -1,4 +1,4 @@
-MAQE Image Carousel: Highly configurable Image Carousel that runs in a efficient way. You can place your DOT and COUNT in different position
+Dewan Image Carousel: Highly configurable Image Carousel that runs in a efficient way. You can place your DOT and COUNT in different position
 
 ## Features
 ![no_count_no_dot](screenshot/no_count_no_dot.gif)
@@ -15,12 +15,12 @@ MAQE Image Carousel: Highly configurable Image Carousel that runs in a efficient
 
 
 ## Getting started
-Flutter and Dart version : 3.3.1 / 2.18.0
+Flutter and Dart version : 3.3.10 / 2.18.0
 #### Install : In your `pubspec.yaml`  under `dependencies:` add the following code to use it directly from git.
 ```
- maqe_image_carousel:    
+ dewan_image_carousel:    
     git:
-      url: https://bitbucket.org/maqe/flutter-image-carousel
+      url: https://github.com/rddewan/dewan-image-carousel
       path: 
 ```
 Once you have installed the package you can import the package as shown below and start using it.
@@ -191,5 +191,4 @@ For complete example please check the `/example` folder.
 ```
 
 ## Additional information
-
-Made with love MAQE. If you want to contribute to this project , you are welcome to create a PR.
+If you want to contribute to this project , you are welcome to create a PR.
