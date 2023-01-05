@@ -1,0 +1,119 @@
+part of dewan_image_carousel;
+
+
+class BLImageCarousel extends StatefulWidget {
+  final double? height;
+  final List<String> images;
+  final BoxFit boxFit;
+  final bool autoPlay;
+  final Duration? autoPlayInterval;
+  final Cubic? curves;
+  final Color dotColor;
+  final DotType dotType;  
+
+  const BLImageCarousel({
+    required this.images,
+    this.height,   
+    required this.boxFit,
+    required this.autoPlay,
+    required this.dotColor,    
+    this.autoPlayInterval,
+    this.curves,
+    this.dotType = DotType.circular,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<BLImageCarousel> createState() =>
+      _BLImageCarouselState();
+}
+
+class _BLImageCarouselState extends State<BLImageCarousel> {
+  
+  late List<String>images;
+  int position = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    setState(() {
+      images = widget.images;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+        
+    return images.isEmpty ? const SizedBox() : Container(
+      color: kBackground,
+      child: Stack(            
+        children: [
+          CarouselSlider(            
+            options: CarouselOptions(
+              enableInfiniteScroll: false,
+              viewportFraction: 1.0,
+              height: widget.height,
+              autoPlay: widget.autoPlay,
+              autoPlayInterval: widget.autoPlayInterval ?? const Duration(seconds: 3),
+              autoPlayCurve: widget.curves ?? Curves.fastOutSlowIn,
+              onPageChanged: (index, reason) {
+                // Update the state for current image position
+                setState(() {
+                  position = index + 1;
+                });
+              },
+            ),
+            items: images.map(
+              (item) {
+                return MCacheImage(
+                  imageUrl: item,
+                  height: widget.height,
+                  boxFit: widget.boxFit,
+                );
+              },
+            ).toList(),
+          ),
+
+          if (widget.dotType == DotType.rounded) ...[
+            Positioned(
+              bottom: kXXSmall , 
+              right: kSmall,                                                  
+              child: MDotIndicator(
+                count: images.length ,
+                position: position.toDouble() - 1,
+                dotColor: widget.dotColor,
+              ),
+            ),
+
+          ]
+          else ...[
+            
+            Positioned(
+              bottom: kXXSmall , 
+              left: kSmall,                                                
+              child: Row(  
+                mainAxisAlignment: MainAxisAlignment.center,                   
+                children: images.asMap().entries.map((entry) {
+                  return Container(
+                    width: kSMedium,
+                    height: kSMedium,
+                    margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: (
+                          Theme.of(context).brightness == Brightness.dark
+                                ? Colors.white
+                                : widget.dotColor)
+                          .withOpacity(position == entry.key +1 ? 0.9 : 0.4),
+                        ),
+                  );
+                }).toList(),                
+              ),
+            ),
+          ]
+        ],
+      ),
+    );
+  }
+}
+
