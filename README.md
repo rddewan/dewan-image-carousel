@@ -25,7 +25,7 @@ Flutter and Dart version : 3.3.10 / 2.18.0
 ```
 Once you have installed the package you can import the package as shown below and start using it.
 
-`import 'package:maqe_image_carousel/maqe_image_carousel.dart';`
+`import 'package:dewan_image_carousel/dewan_image_carousel.dart';`
 
 ## Usage
 
@@ -192,3 +192,7 @@ For complete example please check the `/example` folder.
 
 ## Additional information
 If you want to contribute to this project , you are welcome to create a PR.
+
+## License
+The source code is licensed under the MIT license, which you can find in
+the LICENSE file.
