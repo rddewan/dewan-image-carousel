@@ -10,6 +10,9 @@ class TCImageCarousel extends StatefulWidget {
   final Cubic? curves;
   final Color dotColor;
   final DotType dotType;
+  final bool isOutOfStock;
+  final String outOfStockText;
+  final TextStyle? outOfStockTextStyle;
   
 
   const TCImageCarousel({
@@ -21,6 +24,9 @@ class TCImageCarousel extends StatefulWidget {
     this.autoPlayInterval,
     this.curves,
     this.dotType = DotType.circular,
+    this.isOutOfStock = false,
+    this.outOfStockText = '',
+    this.outOfStockTextStyle,
     Key? key,
   }) : super(key: key);
 
@@ -46,7 +52,8 @@ class _TCImageCarouselState extends State<TCImageCarousel> {
         
     return images.isEmpty ? const SizedBox() : Container(
       color: kBackground,
-      child: Stack(            
+      child: Stack(   
+        alignment: Alignment.center,         
         children: [
           CarouselSlider(            
             options: CarouselOptions(
@@ -73,6 +80,34 @@ class _TCImageCarouselState extends State<TCImageCarousel> {
               },
             ).toList(),
           ),
+
+          // show out of stock 
+          if (widget.isOutOfStock) ... [        
+
+            /// Out of stock text
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black54.withOpacity(0.5),
+                borderRadius:
+                  const BorderRadius.all(
+                    Radius.circular(kMedium),
+                  ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: kLarge,
+                  right: kLarge,
+                  top: kXSmall,
+                  bottom: kXSmall,
+                ),
+                child: Text(
+                  widget.outOfStockText,
+                  style: widget.outOfStockTextStyle,
+                ),
+              ),
+            )
+
+          ],
 
           if (widget.dotType == DotType.rounded) ...[
             Positioned(
