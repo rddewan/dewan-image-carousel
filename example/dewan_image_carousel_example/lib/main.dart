@@ -55,6 +55,11 @@ class _MyHomePageState extends State<MyHomePage> {
               'Image Carousel Example',
             ),
 
+            // Do not show DOT and COUNT - No dot and no count
+            const Text(
+              'Empty Image - ',
+            ),
+
             // Empty image list - return a empty sizeBox
             const BCBLImageCarousel(
               images: [], 
@@ -66,6 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
               dotColor: Colors.greenAccent,  
               showCount: false,
               showDot: false,
+              isOutOfStock: true,
+              outOfStockText: "SOLD OUT", 
+              outOfStockTextStyle: TextStyle(color: Colors.white),
             ),
 
             // Do not show DOT and COUNT - No dot and no count
@@ -81,6 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
               dotColor: Colors.greenAccent,  
               showCount: false,
               showDot: false,
+              isOutOfStock: true,
+              outOfStockText: "SOLD OUT", 
+              outOfStockTextStyle: const TextStyle(color: Colors.white),
             ),
             const SizedBox(height: 8,),
 
@@ -95,7 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
               boxFit: BoxFit.fill,
               autoPlay: true, 
               dotColor: Colors.white,
-              dotType: DotType.rounded,                 
+              dotType: DotType.rounded, 
+              isOutOfStock: true,
+              outOfStockText: "SOLD OUT", 
+              outOfStockTextStyle: const TextStyle(color: Colors.white),                
             ),
             const SizedBox(height: 8,),
 
@@ -209,6 +223,9 @@ class _MyHomePageState extends State<MyHomePage> {
               boxFit: BoxFit.fill,
               autoPlay: true,
               dotColor: Colors.white,  
+              isOutOfStock: true,
+              outOfStockText: "SOLD OUT", 
+              outOfStockTextStyle: const TextStyle(color: Colors.white),
             ),
             const SizedBox(height: 8,),
           ],

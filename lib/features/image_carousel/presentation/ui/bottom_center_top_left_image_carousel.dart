@@ -14,6 +14,9 @@ class BCTLImageCarousel extends StatefulWidget {
   final bool showDot;
   final bool showCount;
   final DotType dotType;
+  final bool isOutOfStock;
+  final String outOfStockText;
+  final TextStyle? outOfStockTextStyle;
 
   const BCTLImageCarousel({
     required this.images,
@@ -28,6 +31,9 @@ class BCTLImageCarousel extends StatefulWidget {
     this.autoPlayInterval,
     this.curves,
     this.dotType = DotType.circular,
+    this.isOutOfStock = false,
+    this.outOfStockText = '',
+    this.outOfStockTextStyle,
     Key? key,
   }) : super(key: key);
 
@@ -52,6 +58,7 @@ class _BCTLImageCarouselState extends State<BCTLImageCarousel> {
   Widget build(BuildContext context) {
     return images.isEmpty ? const SizedBox() : Container(
       color: kBackground,
+      alignment: Alignment.center,  
       child: Stack(            
         children: [
           CarouselSlider(                
@@ -79,6 +86,34 @@ class _BCTLImageCarouselState extends State<BCTLImageCarousel> {
               },
             ).toList(),
           ),
+
+          // show out of stock 
+          if (widget.isOutOfStock) ... [        
+
+            /// Out of stock text
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black54.withOpacity(0.5),
+                borderRadius:
+                  const BorderRadius.all(
+                    Radius.circular(kMedium),
+                  ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: kLarge,
+                  right: kLarge,
+                  top: kXSmall,
+                  bottom: kXSmall,
+                ),
+                child: Text(
+                  widget.outOfStockText,
+                  style: widget.outOfStockTextStyle,
+                ),
+              ),
+            )
+
+          ],
 
           if (widget.showCount)
             Positioned(  
