@@ -36,21 +36,13 @@ class TLImageCarousel extends StatefulWidget {
 }
 
 class _TLImageCarouselState extends State<TLImageCarousel> {  
-  late List<String>images;
   int position = 1;
 
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      images = widget.images;
-    });
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
         
-    return images.isEmpty ? const SizedBox() : Container(
+    return widget.images.isEmpty ? const SizedBox() : Container(
       color: kBackground,
       child: Stack(  
         alignment: Alignment.center,          
@@ -70,7 +62,7 @@ class _TLImageCarouselState extends State<TLImageCarousel> {
                 });
               },
             ),
-            items: images.map(
+            items: widget.images.map(
               (item) {
                 return MCacheImage(
                   imageUrl: item,
@@ -114,7 +106,7 @@ class _TLImageCarouselState extends State<TLImageCarousel> {
               top: kXXSmall , 
               left: kSmall,                                                 
               child: MDotIndicator(
-                count: images.length ,
+                count: widget.images.length ,
                 position: position.toDouble() - 1,
                 dotColor: widget.dotColor,
               ),
@@ -128,7 +120,7 @@ class _TLImageCarouselState extends State<TLImageCarousel> {
               left: kSmall,                                                
               child: Row(  
                 mainAxisAlignment: MainAxisAlignment.center,                   
-                children: images.asMap().entries.map((entry) {
+                children: widget.images.asMap().entries.map((entry) {
                   return Container(
                     width: kSMedium,
                     height: kSMedium,

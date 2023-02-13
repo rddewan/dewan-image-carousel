@@ -43,20 +43,12 @@ class BCTLImageCarousel extends StatefulWidget {
 }
 
 class _BCTLImageCarouselState extends State<BCTLImageCarousel> {
-  late List<String> images;
   int position = 1;
 
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      images = widget.images;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return images.isEmpty ? const SizedBox() : Container(
+    return widget.images.isEmpty ? const SizedBox() : Container(
       color: kBackground,
       alignment: Alignment.center,  
       child: Stack(            
@@ -76,7 +68,7 @@ class _BCTLImageCarouselState extends State<BCTLImageCarousel> {
                 });
               },
             ),
-            items: images.map(
+            items: widget.images.map(
               (item) {
                 return MCacheImage(
                   imageUrl: item,
@@ -126,7 +118,7 @@ class _BCTLImageCarouselState extends State<BCTLImageCarousel> {
                   borderRadius: BorderRadius.circular(kMedium),
                 ),
                 child: Text(
-                  '$position/${images.length}',
+                  '$position/${widget.images.length}',
                   style: widget.positionTextStyle,
                 ),
               ),                  
@@ -140,7 +132,7 @@ class _BCTLImageCarouselState extends State<BCTLImageCarousel> {
                   right: kSmall, 
                   left: kSmall,                                                   
                   child: MDotIndicator(
-                    count: images.length ,
+                    count: widget.images.length ,
                     position: position.toDouble() - 1,
                     dotColor: widget.dotColor,
                   ),
@@ -153,7 +145,7 @@ class _BCTLImageCarouselState extends State<BCTLImageCarousel> {
                 left: kSmall,                                        
                 child: Row(  
                     mainAxisAlignment: MainAxisAlignment.center,                   
-                    children: images.asMap().entries.map((entry) {
+                    children: widget.images.asMap().entries.map((entry) {
                       return Container(
                         width: kSMedium,
                         height: kSMedium,
