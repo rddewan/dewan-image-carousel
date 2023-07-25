@@ -2,6 +2,7 @@ part of dewan_image_carousel;
 
 
 class BLImageCarousel extends StatefulWidget {
+  final double? width;
   final double? height;
   final List<String> images;
   final BoxFit boxFit;
@@ -16,6 +17,7 @@ class BLImageCarousel extends StatefulWidget {
 
   const BLImageCarousel({
     required this.images,
+    this.width,   
     this.height,   
     required this.boxFit,
     required this.autoPlay,
@@ -65,6 +67,7 @@ class _BLImageCarouselState extends State<BLImageCarousel> {
               (item) {
                 return MCacheImage(
                   imageUrl: item,
+                  width: widget.width,
                   height: widget.height,
                   boxFit: widget.boxFit,
                 );
@@ -106,7 +109,7 @@ class _BLImageCarouselState extends State<BLImageCarousel> {
               right: kSmall,                                                  
               child: MDotIndicator(
                 count: widget.images.length ,
-                position: position.toDouble() - 1,
+                position: position - 1,
                 dotColor: widget.dotColor,
               ),
             ),
