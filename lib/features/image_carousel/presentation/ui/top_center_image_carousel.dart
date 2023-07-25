@@ -2,6 +2,7 @@ part of dewan_image_carousel;
 
 
 class TCImageCarousel extends StatefulWidget {
+  final double? width;
   final double? height;
   final List<String> images;
   final BoxFit boxFit;
@@ -17,6 +18,7 @@ class TCImageCarousel extends StatefulWidget {
 
   const TCImageCarousel({
     required this.images,
+    this.width,
     this.height,
     required this.boxFit,
     required this.autoPlay,
@@ -65,6 +67,7 @@ class _TCImageCarouselState extends State<TCImageCarousel> {
               (item) {
                 return MCacheImage(
                   imageUrl: item,
+                  width: widget.width,
                   height: widget.height,
                   boxFit: widget.boxFit,
                 );
@@ -107,7 +110,7 @@ class _TCImageCarouselState extends State<TCImageCarousel> {
               left: kSmall,                                                   
               child: MDotIndicator(
                 count: widget.images.length ,
-                position: position.toDouble() - 1,
+                position: position - 1,
                 dotColor: widget.dotColor,
               ),
             ),

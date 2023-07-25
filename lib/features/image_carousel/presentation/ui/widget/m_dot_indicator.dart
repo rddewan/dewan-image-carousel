@@ -3,7 +3,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 
 class MDotIndicator extends StatelessWidget {
   final int count;
-  final double position;
+  final int position;
   final Color dotColor;
 
   const MDotIndicator({

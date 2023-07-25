@@ -4,28 +4,28 @@ version: 1.0.0
 homepage: https://github.com/rddewan/dewan-image-carousel
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: '>=3.0.6 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
   # https://pub.dev/packages/carousel_slider
-  carousel_slider: ^4.1.1  
+  carousel_slider: ^4.2.1  
   # https://pub.dev/packages/cached_network_image
   # A flutter library to show images from the internet and keep them in the cache directory.
-  cached_network_image: ^3.2.1
+  cached_network_image: ^3.2.3
    # https://pub.dev/packages/flutter_cache_manager
   # A CacheManager to download and cache files in the cache directory of the app.
-  flutter_cache_manager: ^3.3.0
+  flutter_cache_manager: ^3.3.1
   # https://pub.dev/packages/dots_indicator
-  dots_indicator: ^2.1.0
+  dots_indicator: ^3.0.0
   
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^2.0.2
   
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

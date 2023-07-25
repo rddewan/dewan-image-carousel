@@ -2,6 +2,7 @@ part of dewan_image_carousel;
 
 
 class BCTRImageCarousel extends StatefulWidget {
+  final double? width;
   final double? height;
   final List<String> images;
   final TextStyle positionTextStyle;
@@ -20,6 +21,7 @@ class BCTRImageCarousel extends StatefulWidget {
 
   const BCTRImageCarousel({
     required this.images,
+    this.width,
     this.height,
     required this.positionTextStyle,
     required this.boxColor,
@@ -71,6 +73,7 @@ class _BCTRImageCarouselState extends State<BCTRImageCarousel> {
               (item) {
                 return MCacheImage(
                   imageUrl: item,
+                  width: widget.width,
                   height: widget.height,
                   boxFit: widget.boxFit,
                 );
@@ -132,7 +135,7 @@ class _BCTRImageCarouselState extends State<BCTRImageCarousel> {
                   left: kSmall,                                                   
                   child: MDotIndicator(
                     count: widget.images.length ,
-                    position: position.toDouble() - 1,
+                    position: position - 1,
                     dotColor: widget.dotColor,
                   ),
                 ),
