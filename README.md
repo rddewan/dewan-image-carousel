@@ -5,7 +5,7 @@ Dewan Image Carousel: Highly configurable Image Carousel that runs in a efficien
 
 
 ## Getting started
-Flutter and Dart version : 3.3.10 / 2.18.0
+Flutter and Dart version : 3.10.6 / 3.0.6
 #### Install : In your `pubspec.yaml`  under `dependencies:` add the following code to use it directly from git.
 ```
  dewan_image_carousel:    
